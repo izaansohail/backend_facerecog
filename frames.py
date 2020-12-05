@@ -33,8 +33,11 @@ while(True):
 cam.release()
 currentframe = 0
 while(currentframe < final):
-           img = cv2.imread('D:\\izaan\\Work\\University\\university docs\\Semester 5\\Database Systems\\Project\\BackEnd\\data\\' + str(currentframe) + '.jpg')
-           path = 'D:\\izaan\\Work\\University\\university docs\\Semester 5\\Database Systems\\Project\\BackEnd\\new'
-           cv2.imwrite(os.path.join(path, str(currentframe) + '.jpg'), img)
-           currentframe += 1
-           cv2.destroyAllWindows()
+        img = cv2.imread('D:\\izaan\\Work\\University\\university docs\\Semester 5\\Database Systems\\Project\\BackEnd\\data\\' + str(currentframe) + '.jpg')
+        if not os.path.exists('new'):
+            os.makedirs('new')
+        
+        path = 'D:\\izaan\\Work\\University\\university docs\\Semester 5\\Database Systems\\Project\\BackEnd\\new'
+        cv2.imwrite(os.path.join(path, str(currentframe) + '.jpg'), img)
+        currentframe += 1
+        cv2.destroyAllWindows()
